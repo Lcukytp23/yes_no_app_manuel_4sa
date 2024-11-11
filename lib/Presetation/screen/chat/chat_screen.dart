@@ -46,7 +46,7 @@ class _ChatView extends StatelessWidget {
                 //Instacia del mensaje que sabra de quien es el mensaje
                 final message = chatProvider.messageList[index];
               return (message.fromWho == FromWho.hers)
-              ? HerMessageBubble()
+              ? HerMessageBubble(message: message,)
               :MyMessageBubble(message: message,);
             },)
             ),
