@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+//Temas para el chat
+
 const Color _customColor = Color( 0xFF5C11D4 );
 
+//Lista de los temas
 const List<Color> _colorThemes = [
   _customColor,
   Colors.blue,
@@ -25,7 +28,7 @@ class AppTheme{
     return ThemeData(
       useMaterial3: true,
       colorSchemeSeed: _colorThemes[selectedColor],
-      //brightness: Brightness.dark
+      //brightness: Brightness.dark //esta linea es para que se active el modo oscuro
     );
   }
 }

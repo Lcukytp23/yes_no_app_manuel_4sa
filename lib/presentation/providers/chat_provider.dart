@@ -5,8 +5,8 @@ import 'package:yes_no_app_manuel_4sa/domain/entities/message.dart';
 
 class ChatProvider extends ChangeNotifier{
   List<Message> messageList=[
-    Message(text: "Hola Ader", fromWho: FromWho.me),
-    Message(text: "¿Lloras por que reprobaste topicos?", fromWho: FromWho.me)
+    Message(text: "Hola Ader", fromWho: FromWho.me, DateTime.timestamp(), MessageStatus.sent),
+    Message(text: "¿Lloras por que reprobaste topicos?", fromWho: FromWho.me, DateTime.timestamp(), MessageStatus.sent)
   ];
   // controlador para manejar la posicion del Scroll
   final ScrollController chatScrollController = ScrollController();
@@ -21,7 +21,7 @@ class ChatProvider extends ChangeNotifier{
     //Verifica que el texto no esté vacio
     if (text.trim().isEmpty) return;
     //El mensaje siempre va a ser "me" por que yo lo envío
-    final newMessage = Message(text: text, fromWho: FromWho.me);
+    final newMessage = Message(text: text, fromWho: FromWho.me,DateTime.timestamp(), MessageStatus.sent);
     // agrega un elemento a la lista "messageList"
     messageList.add(newMessage);
     if (text.endsWith("?")){
@@ -38,7 +38,7 @@ class ChatProvider extends ChangeNotifier{
 
     //Mover el scroll al último mensaje
     Future<void> moveScrollToBottom() async {
-    if (chatScrollController.hasClients){
+    
       // un pequeño atraso en la animacion para garantizar que siempre se vera aun cuando
       // se envien mensajes cortos y rapidos
       await Future.delayed(const Duration(seconds: 1));
@@ -49,7 +49,7 @@ class ChatProvider extends ChangeNotifier{
         duration: const Duration(milliseconds: 300),
         //"Rebote" al final de la animacion 
         curve: Curves.easeOut);
-    }
+    
   }
   
   Future<void> herReply() async {

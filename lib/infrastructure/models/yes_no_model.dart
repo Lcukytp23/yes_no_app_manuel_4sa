@@ -35,7 +35,9 @@ class YesNoModel {
     // siempre va a ser de ella 
     fromWho: FromWho.hers,
     //Será el gif
-    imageUrl: image
+    imageUrl: image,
+    DateTime.timestamp(),
+    MessageStatus.sent
     );
 
 }

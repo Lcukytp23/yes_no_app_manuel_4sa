@@ -3,7 +3,6 @@
 import 'package:dio/dio.dart';
 import 'package:yes_no_app_manuel_4sa/domain/entities/message.dart';
 import 'package:yes_no_app_manuel_4sa/infrastructure/models/yes_no_model.dart';
-
 class GetYesNoAnswer {
 
   //Se crea instancia de la clase Dio
